@@ -13,9 +13,8 @@ import org.opencv.core._
 object Application {
 
   System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
-  var dataFolder = "C:\\Users\\LOICK\\IdeaProjects\\scala\\datasExtractionFromImages\\data\\"
-  var inputFolder = "C:\\Users\\LOICK\\IdeaProjects\\scala\\datasExtractionFromImages\\data\\input\\"
-
+  var dataFolder = "C:\\Users\\LOICK\\IdeaProjects\\scala\\ExtractDataFromImages\\data\\"
+  var inputFolder = "C:\\Users\\LOICK\\IdeaProjects\\scala\\ExtractDataFromImages\\data\\input\\"
 
   def main(args: Array[String]): Unit = {
 
