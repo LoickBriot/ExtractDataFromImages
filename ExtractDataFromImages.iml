@@ -7,5 +7,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="scala-sdk-2.11.7" level="application" />
+    <orderEntry type="library" name="tess4j" level="project" />
+    <orderEntry type="library" name="opencv-2410" level="project" />
+    <orderEntry type="library" name="commons-io-2.4" level="project" />
+    <orderEntry type="library" name="marvin_1.5.1" level="project" />
+    <orderEntry type="library" name="java-ocr-api-15.3.0.3-javadoc" level="project" />
+    <orderEntry type="library" name="aocr" level="project" />
+    <orderEntry type="library" name="Imshow" level="project" />
   </component>
 </module>
