@@ -35,7 +35,7 @@ object Application {
 
     } else {
       for (imageFile <- fileList) {
-        var image = Images.loadCVImage(imageFile.getAbsolutePath)
+        var image = Images.cvReduceColorDim(Images.loadCVImage(imageFile.getAbsolutePath),40)
         image = processingBeforeCrop.process(image, 2000000)
         CropImages.cropTextAreas(image, imageFile, rectFactor, x_lim1, y_lim1, x_lim2, y_lim2)
       }

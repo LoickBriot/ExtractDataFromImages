@@ -4,19 +4,20 @@ package externClasses.scala
   * Created by LOICK on 15/11/2015.
   */
 
+import Array._
 import java.awt.image.BufferedImage
 import java.awt.{FlowLayout, GraphicsEnvironment, RenderingHints}
 import java.io.{ByteArrayInputStream, File}
 import javax.imageio.ImageIO
 import javax.swing.{ImageIcon, JFrame, JLabel}
 
-import externClasses.scala.Files._
+import externClasses.scala.Files
 import marvin.image.MarvinImage
 import marvin.io.MarvinImageIO
 import org.opencv.core._
 import org.opencv.highgui.Highgui
 import org.opencv.imgproc._
-
+import externClasses.java.ConvertUtil
 
 /**
   * @author LOICK
@@ -24,6 +25,43 @@ import org.opencv.imgproc._
 
 
 object Images {
+
+  var inputFolder = "C:\\Users\\LOICK\\IdeaProjects\\scala\\ExtractDataFromImages\\data\\input\\"
+  var inputFolder4 = "C:\\Users\\LOICK\\IdeaProjects\\scala\\ExtractDataFromImages\\data\\input4\\"
+  System.loadLibrary( Core.NATIVE_LIBRARY_NAME );
+
+  def main(args: Array[String]): Unit = {
+  /*
+    var listFile = Files.getListOfFiles(inputFolder)
+    for (file <- listFile){
+      saveBufferedImage(convert4(loadBufferedImage(file.getAbsolutePath)),inputFolder4+file.getName)
+    }*/
+    var image = loadCVImage(inputFolder+"affiche-croods.jpg")
+
+    displayCVImage(cvReduceColorDim(image,10))
+  }
+
+
+  def cvReduceColorDim(image: Mat, factor: Int): Mat ={
+
+    def newVal(pix: Double, factor: Int): Double ={
+      var y = 0.0
+      if (pix<125){
+        y = (pix / factor).toInt * factor.toDouble
+      } else {
+        y = ((pix / factor).toInt * factor) + 5.toDouble
+      }
+      return y
+    }
+    var copy = image.clone()
+    for (y<-0 until copy.rows; x<- 0 until copy.cols){
+      var b =  newVal(image.get(y,x)(0), factor)
+      var g = newVal(image.get(y,x)(1), factor)
+      var r = newVal(image.get(y,x)(2), factor)
+      copy.put(y,x,b,g,r)
+    }
+    return copy
+  }
 
   /*
   * Load an image
@@ -45,7 +83,7 @@ object Images {
     MarvinImageIO.saveImage(image, fileName)
   }
   def saveBufferedImage(image: BufferedImage, fileName: String): Unit ={
-    ImageIO.write(image, getExtension(fileName), new File(fileName));
+    ImageIO.write(image, Files.getExtension(fileName), new File(fileName));
   }
   def saveCVImage(image: Mat, fileName: String): Unit ={
     Highgui.imwrite( fileName, image );
@@ -134,5 +172,14 @@ object Images {
     var in = new ByteArrayInputStream(bytes);
     return ImageIO.read(in);
   }
+
+  def colorScaleImage(image: Mat): Mat ={
+
+    var copy = copyCVMat(image)
+    Imgproc.cvtColor(image,copy,Imgproc.COLOR_BGR2GRAY)
+    return copy
+  }
+
+
 
 }

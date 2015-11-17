@@ -10,6 +10,7 @@ object processingBeforeOCR {
 
   def process(image: Mat): Mat = {
     var copy = Images.copyCVMat(image)
+    copy=Images.colorScaleImage(copy)
     return copy
 
   }

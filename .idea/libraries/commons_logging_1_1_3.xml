@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="commons-logging-1.1.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/tesseract/commons-logging-1.1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/tesseract/xmlgraphics-commons-1.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/tesseract/jna.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/tesseract/jai_imageio.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/tesseract/itext-2.1.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/tesseract/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/tesseract/ghost4j-0.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/tesseract/commons-beanutils-1.9.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/tesseract/junit-4.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

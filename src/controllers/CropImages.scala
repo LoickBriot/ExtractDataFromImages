@@ -13,7 +13,7 @@ import scala.collection.immutable.ListMap
   */
 object CropImages {
 
-  var dataFolder = "C:\\Users\\LOICK\\IdeaProjects\\scala\\datasExtractionFromImages\\data\\"
+  var dataFolder = "C:\\Users\\LOICK\\IdeaProjects\\scala\\ExtractDataFromImages\\data\\"
 
 
   def cropTextAreas( image_init: Mat, imageFile: File, rectFactor:Double, x_lim1: Int, y_lim1: Int, x_lim2: Int, y_lim2: Int): Unit = {
